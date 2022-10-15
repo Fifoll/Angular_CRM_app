@@ -3,16 +3,20 @@ import { CommonModule } from '@angular/common';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { HeaderComponent } from '../shared/header/header.component';
 import { SharedModule } from '../shared/shared.module';
+import { ContactsRoutingModule } from './contacts-routing.module';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 
 
 @NgModule({
   declarations: [
-    ContactsListComponent
+    ContactsListComponent,
+    ContactDetailsComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ContactsRoutingModule
   ],
   exports: [
     ContactsListComponent
