@@ -18,4 +18,13 @@ export class ContactsService {
 
   }
 
+  getContact(id: number): Observable<any> {
+
+    
+    return this.httpClient.get(`${this.baseApiUrl}/contact/${id}`);
+
+  }
+
+  
+
 }
