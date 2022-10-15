@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let contact of contacts; let i = index"> <!-- dyrektywa -->
+        <tr *ngFor="let contact of contacts; let i = index" [routerLink]="['/contact/', contact.id]"> <!-- dyrektywa -->
             <td>{{ i + 1 }}</td> <!-- interpolacja -->
             <td>{{ contact.firstName }}</td>  <!-- data binding -->
             <td>{{ contact.surname }}</td>
