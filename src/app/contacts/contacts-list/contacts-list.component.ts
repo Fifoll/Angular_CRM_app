@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactModel } from 'src/app/models/contact-model';
-import { CONTACTS } from 'src/app/data/contacts-data';
+import { ContactsService } from '../contacts.service';
+// import { CONTACTS } from 'src/app/data/contacts-data';
 
 @Component({
   selector: 'app-contacts-list',
@@ -10,13 +11,13 @@ import { CONTACTS } from 'src/app/data/contacts-data';
 export class ContactsListComponent implements OnInit {
 
 
-  contacts: ContactModel[] = CONTACTS;
+  contacts: ContactModel[] = [];
 
   
-  constructor() { }
+  constructor(private contactsService: ContactsService) { }
   
   ngOnInit(): void {
-    console.log(this.contacts);
+    this.loadContacts();
   }
 
 
@@ -28,8 +29,15 @@ export class ContactsListComponent implements OnInit {
 
   showContacts(): void {
 
-    this.contacts = CONTACTS;
+    // this.contacts = CONTACTS;
     
+  }
+
+  loadContacts(): void {
+
+    this.contactsService.getContacts().subscribe(data => this.contacts = data);
+    
+
   }
 
 
