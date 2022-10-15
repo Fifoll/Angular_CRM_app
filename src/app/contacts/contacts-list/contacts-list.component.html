@@ -1,0 +1,30 @@
+
+<app-header>
+    <p content>Lista wszystkich kontaktów</p>
+</app-header>
+
+<table *ngIf="contacts.length > 0; else noContactsAlert" class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Lp.</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Nr. telefonu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts; let i = index"> <!-- dyrektywa -->
+            <td>{{ i + 1 }}</td> <!-- interpolacja -->
+            <td>{{ contact.firstName }}</td>  <!-- data binding -->
+            <td>{{ contact.surname }}</td>
+            <td>{{ contact.phoneNumber }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noContactsAlert>
+    <p>Aktualnie brak kontaktów</p>
+</ng-template>
+
+<button  (click)="hideContacts()" class="btn btn-danger btn-sm">Ukryj</button>
+<button (click)="showContacts()" class="btn btn-primary btn-sm">Pokaż</button>
