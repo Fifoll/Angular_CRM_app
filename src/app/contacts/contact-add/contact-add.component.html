@@ -1,0 +1,33 @@
+<app-header>
+    <p content>Dodaj nowy kontakt</p>
+</app-header>
+
+<form [formGroup]="contactForm"> <!-- wzięte z ts spójrz -->
+    <div class="row form-group">
+        <div class="col-lg-4">
+            <label>Nazwisko</label>
+                <input formControlName="surname" class="form-control" placeholder="Nazwisko" autofocus maxlength="20"> 
+        </div>
+        <div class="col-lg-4">
+            <label>Imię</label>
+                <input formControlName="firstName" class="form-control" placeholder="Imię" autofocus maxlength="20">
+        </div>
+        <div class="col-lg-4">
+            <label>Numer Telefonu</label>
+                <input formControlName="phoneNumber" class="form-control" placeholder="Nr. telefonu" autofocus maxlength="9">
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <button (click)="addContact()" [disabled]="contactForm.invalid" class="btn btn-sm btn-success">Zapisz</button>
+            <button (click)="contactForm.reset()" class="btn btn-sm btn-danger">Wyczyść</button> <!-- reset wbudowana funkcja do formularzy  -->
+            <button [routerLink]="['/contacts']" class="btn btn-sm btn-secondary">Wstecz</button>
+        </div>
+    </div>
+</form>
+
+<!-- <pre>{{ contactForm.value | json }}</pre> pipe przetransformujemy na jsona dla wersji deweloperskiej - fajna sprawa
+
+<pre>{{ contactForm.status | json }}</pre> ten pipe pokazuje status walidacji
+
+<pre>{{ contactForm.invalid | json }}</pre> ten pipe pokazuje true/false fajnie to wykorzystać w buttonie disabled -->
