@@ -10,6 +10,7 @@
             <th>Imie</th>
             <th>Nazwisko</th>
             <th>Nr. telefonu</th>
+            <th>Akcja</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
             <td>{{ contact.firstName }}</td>  <!-- data binding -->
             <td>{{ contact.surname }}</td>
             <td>{{ contact.phoneNumber }}</td>
+            <td><button (click)="removeContact(contact, $event)" class="btn btn-danger btn-sm">Usuń</button></td>
         </tr>
     </tbody>
 </table>

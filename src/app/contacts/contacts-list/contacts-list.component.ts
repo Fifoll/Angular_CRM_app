@@ -40,5 +40,20 @@ export class ContactsListComponent implements OnInit {
 
   }
 
+  removeContact(contact: ContactModel, event: Event): void {
+
+    event.stopPropagation();
+
+    const conf = confirm(`Czy na pewno chcesz usunąć użytkownika ${contact.firstName} ${contact.surname}`);
+
+    if(conf){
+
+      this.contactsService.removeContact(contact.id).subscribe(() => this.loadContacts()); // musimy przeładować po usunięciu
+
+    }
+
+
+  }
+
 
 }
